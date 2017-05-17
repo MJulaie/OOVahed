@@ -18,20 +18,20 @@ public class VahedSelectionService {
         return new ArrayList<Option>();
     }
 
-    private boolean validateBarnameh(Barnameh barnameh, History history){
+    private boolean validateBarnameh(Barnameh barnameh,StudentState studentState, History history){
         for(BarnamehPolicyChecker rule : barnamehRules)
             if(!rule.satisfy(barnameh))
                 return false;
 
         for(StudentPolicyChecker rule : studentRules)
-            if(!rule.satisfy(barnameh, history))
+            if(!rule.satisfy(barnameh, studentState, history))
                 return false;
 
         return true;
     }
 
-    public boolean Register(Barnameh barnameh, History history){
-        if(validateBarnameh(barnameh, history)) {
+    public boolean Register(Barnameh barnameh, StudentState studentState,History history){
+        if(validateBarnameh(barnameh, studentState, history)) {
             // to be Registered
             return true;
         }

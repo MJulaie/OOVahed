@@ -5,6 +5,7 @@ import java.security.acl.Permission;
  */
 public class Student extends Person {
 
+    private StudentState studentState;
     private FacultyServices Amoozesh = new Faculty();
     private History history;
     private Barnameh currentBarnameh = new Barnameh();
@@ -15,5 +16,9 @@ public class Student extends Person {
 
     public History getHistory() {
         return history;
+    }
+
+    public Student(StudentState studentState) {
+        this.studentState = studentState;
     }
 }

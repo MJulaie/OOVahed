@@ -15,7 +15,4 @@ public class History {
         return lastBarnameh.calculateRate();
 
     }
-
-
-
 }

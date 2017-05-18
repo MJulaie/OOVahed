@@ -10,7 +10,8 @@ public class Option {
     private ArrayList<CourseTime> courseTimes = new ArrayList<CourseTime>();
     private SimpleDateFormat examDate = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private int capacity;
-    private String semester;
+    private int semesterID;
+    private boolean available;
 
 
     public Option(Course course, Teacher teacher, ArrayList<CourseTime> courseTimes, SimpleDateFormat examDate, int capacity, String semester) {
@@ -25,7 +26,11 @@ public class Option {
         return course.getVahedNumber();
     }
 
+    public boolean isAvailable(){
+        return available;
+    }
 
-
-
+    public Course getCourse() {
+        return course;
+    }
 }

@@ -20,4 +20,14 @@ public class OptionState{
     public void setState(OptionLiveState state) {
         this.state = state;
     }
+
+    public boolean isPassed(){
+        if (score >= 10){
+            //magic number!!!!!!!!!
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }

@@ -13,7 +13,7 @@ public class VahedProcess {
     public VahedProcess(Student student) {
         this.student = student;
         this.Amoozesh = student.getAmoozesh().getVahedSelectionService();
-        this.options = Amoozesh.getOptions(student);
+        this.options = Amoozesh.getOptions(student.getStudentInfo(), student.getHistory());
     }
 
     public void addOption(int i){
@@ -25,7 +25,7 @@ public class VahedProcess {
     }
 
     public void confirm(){
-        if(Amoozesh.Register(barnameh, student.getHistory())) {
+        if(Amoozesh.Register(barnameh, student.getStudentState(), student.getHistory())) {
             return;
         }
     }

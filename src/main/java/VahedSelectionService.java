@@ -14,8 +14,11 @@ public class VahedSelectionService {
          */
     }
 
-    public ArrayList<Option> getOptions(Student student){
-        return new ArrayList<Option>();
+    public ArrayList<Option> getOptions(StudentInfo studentInfo, History history){
+        ArrayList<Course> passedCourses = history.getPassedCourses();
+        ArrayList<Course> remainCourses = studentInfo.getRemainCourse(passedCourses);
+        return OptionRepository.getInstance().getAvailableOptions(remainCourses);
+
     }
 
     private boolean validateBarnameh(Barnameh barnameh,StudentState studentState, History history){
@@ -32,7 +35,7 @@ public class VahedSelectionService {
 
     public boolean Register(Barnameh barnameh, StudentState studentState,History history){
         if(validateBarnameh(barnameh, studentState, history)) {
-            // to be Registered
+            history.addBarnameh(barnameh);
             return true;
         }
         return false;

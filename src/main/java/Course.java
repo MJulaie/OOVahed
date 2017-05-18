@@ -13,4 +13,14 @@ public class Course {
     public int getVahedNumber() {
         return vahedNumber;
     }
+
+    public String getName() {
+        return name;
+    }
+
+
+
+    public boolean equals(Course course) {
+        return course.getName().equals(name);
+    }
 }

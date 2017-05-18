@@ -51,4 +51,16 @@ public class Barnameh {
 
         return result / allVahed;
     }
+
+    public ArrayList<Course> getPassedCourse(){
+        ArrayList<Course> passedCourses = new ArrayList<Course>();
+
+        for (Map.Entry<Option, OptionState> entry : optionList.entrySet()){
+            if (entry.getValue().isPassed()) {
+                passedCourses.add(entry.getKey().getCourse());
+            }
+        }
+
+        return passedCourses;
+    }
 }

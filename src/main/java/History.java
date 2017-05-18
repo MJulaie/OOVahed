@@ -15,4 +15,16 @@ public class History {
         return lastBarnameh.calculateRate();
 
     }
+
+    public ArrayList<Course> getPassedCourses(){
+        ArrayList<Course> passedCourses = new ArrayList<Course>();
+        for (Barnameh barnameh : semesters){
+            passedCourses.addAll(barnameh.getPassedCourse());
+        }
+        return passedCourses;
+    }
+
+    public void addBarnameh(Barnameh newBarnameh){
+        semesters.add(newBarnameh);
+    }
 }

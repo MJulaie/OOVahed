@@ -24,4 +24,9 @@ public class CourseSlot {
         return  dayOfWeek.equals(courseSlot.getDayOfWeek())
                 && courseTime.hasOverlap(courseSlot.courseTime);
     }
+
+    @Override
+    public String toString() {
+        return dayOfWeek + " : " + courseTime.toString();
+    }
 }

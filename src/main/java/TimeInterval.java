@@ -32,4 +32,9 @@ public class TimeInterval {
         return startTime.isBefore(timeInterval.getEndTime())
                 && timeInterval.getStartTime().isBefore(endTime);
     }
+
+    @Override
+    public String toString() {
+        return this.startTime.toString() + " -- " + this.endTime.toString();
+    }
 }

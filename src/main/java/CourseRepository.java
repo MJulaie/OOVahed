@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * Created by Ali on 5/18/2017 AD.
  */
 public class CourseRepository {
-    private ArrayList<Course> courses;
+    private ArrayList<Course> courses = new ArrayList<Course>();
     private static CourseRepository instance = new CourseRepository();
 
     public static CourseRepository getInstance(){

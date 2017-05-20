@@ -11,6 +11,7 @@ import java.util.Map;
 public class History {
     private ArrayList<Barnameh> semesters = new ArrayList<Barnameh>();
 
+
     public float calculateLastSemesterRate(){
         Collections.sort(semesters);
         Barnameh lastBarnameh = semesters.get(semesters.size() - 1);

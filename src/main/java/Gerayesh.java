@@ -22,16 +22,21 @@ public class Gerayesh {
         this.reshtehName = reshtehName;
     }
 
+    public String getName(){
+        return name;
+    }
+
     public void addChart(Chart newChart, Integer currentYear){
         mappedCharts.put(currentYear, newChart);
     }
 
     public Chart getChartByEnterance(Integer enterance){
 
+
         Set yearSet = mappedCharts.entrySet();
         Iterator year = yearSet.iterator();
 
-        Map.Entry<Integer, Chart> entry = (Map.Entry<Integer, Chart>) year;
+        Map.Entry<Integer, Chart> entry = (Map.Entry<Integer, Chart>) year.next();
         while(year.hasNext()){
             entry = (Map.Entry<Integer, Chart>) year.next();
 

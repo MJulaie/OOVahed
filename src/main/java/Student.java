@@ -7,9 +7,9 @@ public class Student extends Person {
 
     private StudentState studentState;
     private StudentInfo studentInfo;
-    private FacultyServices Amoozesh = new Faculty();
+    private FacultyServices Amoozesh;
     private History history;
-    private Barnameh currentBarnameh = new Barnameh();
+    private Barnameh currentBarnameh;
 
     public FacultyServices getAmoozesh() {
         return Amoozesh;
@@ -24,10 +24,14 @@ public class Student extends Person {
     }
 
 
-    public Student(String name, String family, Integer nationalID, StudentState studentState, StudentInfo studentInfo) {
+    public Student(String name, String family, Integer nationalID, Gerayesh gerayesh, Integer enteranceYear) {
+
         super(name, family, nationalID);
-        this.studentState = studentState;
-        this.studentInfo = studentInfo;
+        this.currentBarnameh = new Barnameh();
+        this.Amoozesh = new Faculty();
+        this.history = new History();
+        this.studentState = StudentState.AADI;
+        this.studentInfo = new StudentInfo(enteranceYear, gerayesh);
     }
 
     public StudentState getStudentState() {

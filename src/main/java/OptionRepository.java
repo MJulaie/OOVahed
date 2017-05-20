@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Created by Ali on 5/18/2017 AD.
  */
 public class OptionRepository {
-    private ArrayList<Option> options;
+    private ArrayList<Option> options = new ArrayList<Option>();
 
     private static OptionRepository instance;
     static {
@@ -73,8 +73,11 @@ public class OptionRepository {
     public ArrayList<Option> getAvailableOptions(ArrayList<Course> remainCourses) {
         ArrayList<Option> availableOptions = new ArrayList<Option>();
 
+
         for(Course course : remainCourses) {
+//            System.out.println("remainCourse name : " + course.getName());
             for(Option option : options){
+//                System.out.println("remainCourse name : " + option.toString());
                 if (option.isAvailable()){
                     if (option.getCourse().equals(course)){
                         availableOptions.add(option);

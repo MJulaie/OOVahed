@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Created by Ali on 5/18/2017 AD.
  */
 public class ReshtehRepository {
-    private ArrayList<Reshteh> reshtehHa;
+    private ArrayList<Reshteh> reshtehHa = new ArrayList<Reshteh>();
     private static ReshtehRepository instance = new ReshtehRepository();
 
     public static ReshtehRepository getInstance(){
@@ -40,6 +40,7 @@ public class ReshtehRepository {
         Reshteh bargh = new Reshteh("Bargh");
         Chart ghodratChart = initChart();
 
+
         Gerayesh ghodrat = new Gerayesh("ghodrat");
         Gerayesh mokhaberat = new Gerayesh("mokhaberat");
 
@@ -49,13 +50,13 @@ public class ReshtehRepository {
         bargh.addGerayesh(mokhaberat);
 
 
-        ReshtehRepository.getInstance().addReshteh(bargh);
+        this.addReshteh(bargh);
 
 
         Reshteh naft = new Reshteh("naft");
-        ReshtehRepository.getInstance().addReshteh(naft);
+        this.addReshteh(naft);
         Reshteh metal = new Reshteh("metal");
-        ReshtehRepository.getInstance().addReshteh(metal);
+        this.addReshteh(metal);
     }
 
 
@@ -63,8 +64,12 @@ public class ReshtehRepository {
         reshtehHa.add(newReshteh);
     }
 
-
-
-
-
+    public Gerayesh getGerayeshByName(String gerayeshName){
+        for (Reshteh reshteh : reshtehHa){
+            if (reshteh.hasGerayesh(gerayeshName)){
+                return reshteh.getGerayeshByName(gerayeshName);
+            }
+        }
+        return null;
+    }
 }

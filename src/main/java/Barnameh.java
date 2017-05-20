@@ -8,18 +8,27 @@ import java.util.*;
  */
 public class Barnameh implements Comparable<Barnameh> {
 
-    private Map<Option, OptionState> optionList = new HashMap<Option, OptionState>();
+    private Map<Option, OptionState> optionList;
+    private ArrayList<String> temparray;
     private LocalDate startDate;
-//    ArrayList<Option> optionlist = new ArrayList<Option>();
 
     public Barnameh() {
+        this.optionList = new HashMap<Option, OptionState>();
+        this.temparray = new ArrayList<String>();
         this.startDate = new LocalDate();
     }
 
     public void addOption(Option selected){
 
-        if(!optionList.containsKey(selected))
-            optionList.put(selected, new OptionState());
+        if(!optionList.containsKey(selected)) {
+            temparray.add("lskdj");
+            System.out.println(temparray.size());
+//
+//            System.out.println("Your selected option : " + selected);
+//            optionList.put(selected, new OptionState());
+//            System.out.println(this.startDate);
+//            System.out.println(this);
+        }
         else
             System.out.println("You have Already Added this option!");
     }
@@ -27,6 +36,10 @@ public class Barnameh implements Comparable<Barnameh> {
     public void removeOption(Option selected){
         if(optionList.containsKey(selected))
             optionList.remove(selected);
+    }
+
+    public int getSize(){
+        return temparray.size();
     }
 
     public int getVahedNumber() {
@@ -100,5 +113,19 @@ public class Barnameh implements Comparable<Barnameh> {
         else
             return 0;
 
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        System.out.println("size : " + optionList.size());
+        for (Option option : optionList.keySet()){
+            System.out.println("selected ! : " + option);
+            sb.append(option);
+            sb.append('\n');
+        }
+
+        return sb.toString();
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Created by Ali on 5/18/2017 AD.
  */
 public class TeacherRepository {
-    private ArrayList<Teacher> teachers;
+    private ArrayList<Teacher> teachers = new ArrayList<Teacher>();
     private static TeacherRepository instance = new TeacherRepository();
 
     public static TeacherRepository getInstance(){
@@ -26,7 +26,7 @@ public class TeacherRepository {
 
     public Teacher getTeacherByID(Integer nationalID){
         for (Teacher teacher : teachers){
-            if (teacher.getNationalID() == nationalID){
+            if (teacher.getNationalID().equals(nationalID)){
                 return teacher;
             }
         }

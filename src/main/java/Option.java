@@ -20,6 +20,7 @@ public class Option {
         this.examDate = examDate;
         this.capacity = capacity;
         this.semesterID = semesterID;
+        this.available = true;
     }
 
     public int getVahedNumber() {
@@ -55,5 +56,10 @@ public class Option {
         if(examDate.equals(option.examDate))
             return false;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return course.getName() + "  |  " + teacher.getName() + " " + teacher.getLastName() + "  |  " + courseTimes.get(0).toString();
     }
 }

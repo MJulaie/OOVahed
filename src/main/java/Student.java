@@ -23,8 +23,11 @@ public class Student extends Person {
         return studentInfo;
     }
 
-    public Student(StudentState studentState) {
+
+    public Student(String name, String family, Integer nationalID, StudentState studentState, StudentInfo studentInfo) {
+        super(name, family, nationalID);
         this.studentState = studentState;
+        this.studentInfo = studentInfo;
     }
 
     public StudentState getStudentState() {

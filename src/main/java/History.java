@@ -1,6 +1,8 @@
 import javafx.collections.transformation.SortedList;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -10,8 +12,8 @@ public class History {
     private ArrayList<Barnameh> semesters = new ArrayList<Barnameh>();
 
     public float calculateLastSemesterRate(){
-        // jula !!
-        Barnameh lastBarnameh = semesters.get(0);
+        Collections.sort(semesters);
+        Barnameh lastBarnameh = semesters.get(semesters.size() - 1);
         return lastBarnameh.calculateRate();
 
     }

@@ -9,6 +9,8 @@ public class Chart {
 
     private ArrayList<Course> courses = new ArrayList<Course>();
     private Map<Course, ArrayList<Course>> Prerequisites = new HashMap<Course, ArrayList<Course>>();
+    private ArrayList<Course> optionalCourses;
+    private Map<ArrayList<Course>,Integer> groupCourses;
 
 
     public void addCourse(Course newCourse){
@@ -35,6 +37,14 @@ public class Chart {
             }
         }
         return remainCourses;
+    }
+
+    public ArrayList<Course> getPrerequisities(Course course){
+
+        if(Prerequisites.get(course) != null)
+            return Prerequisites.get(course);
+        else
+            return new ArrayList<Course>();
     }
 
 }

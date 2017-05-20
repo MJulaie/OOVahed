@@ -11,7 +11,7 @@ public class VahedProcess {
     private ArrayList<Option> options = new ArrayList<Option>();
 
     public VahedProcess(Student student) {
-        this.barnameh = new Barnameh();
+        this.barnameh = student.getHistory().getActiveBarnameh();
         this.student = student;
         this.Amoozesh = student.getAmoozesh().getVahedSelectionService();
         this.options = Amoozesh.getOptions(student.getStudentInfo(), student.getHistory());
@@ -25,13 +25,9 @@ public class VahedProcess {
         }
     }
 
-    public int getSize(){
-        return barnameh.getSize();
-    }
 
     public void printCurrentBarnameh(){
-
-        System.out.println(barnameh);
+        System.out.println(this.barnameh);
     }
 
     public void addOption(int i){
@@ -42,7 +38,11 @@ public class VahedProcess {
         barnameh.removeOption(options.get(i - 1));
     }
 
-    public void confirm(){
+
+    public boolean validateBarnameh(){
+        return Amoozesh.validateBarnameh(barnameh,student.getStudentState(), student.getHistory());
+    }
+    public void confirmBarnameh(){
         if(Amoozesh.Register(barnameh, student.getStudentState(), student.getHistory())) {
             return;
         }

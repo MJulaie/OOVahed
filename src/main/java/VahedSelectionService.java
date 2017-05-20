@@ -5,10 +5,12 @@ import java.util.ArrayList;
  */
 public class VahedSelectionService {
 
-    ArrayList<BarnamehPolicyChecker> barnamehRules;
+    ArrayList<BarnamehPolicyChecker> barnamehRules ;
     ArrayList<StudentPolicyChecker> studentRules;
 
     public VahedSelectionService() {
+        this.barnamehRules = new ArrayList<BarnamehPolicyChecker>();
+        this.studentRules = new ArrayList<StudentPolicyChecker>();
         /* Add Rules or Removing Dynamicly
          can using Reflection
          */
@@ -21,7 +23,7 @@ public class VahedSelectionService {
 
     }
 
-    private boolean validateBarnameh(Barnameh barnameh,StudentState studentState, History history){
+    public boolean validateBarnameh(Barnameh barnameh,StudentState studentState, History history){
         for(BarnamehPolicyChecker rule : barnamehRules)
             if(!rule.satisfy(barnameh))
                 return false;

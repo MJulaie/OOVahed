@@ -30,4 +30,16 @@ public class History {
     public void addBarnameh(Barnameh newBarnameh){
         semesters.add(newBarnameh);
     }
+
+    public Barnameh getActiveBarnameh(){
+
+        for (Barnameh barnameh : semesters){
+            System.out.println(semesters.get(0));
+            if (barnameh.isActive()){
+                return barnameh;
+            }
+        }
+
+        return new Barnameh();
+    }
 }

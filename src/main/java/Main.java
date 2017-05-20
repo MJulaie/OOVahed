@@ -16,21 +16,21 @@ public class Main {
         String input;
         while (true){
             System.out.println("Hi, please enter your ID: ");
-//            input = sc.nextLine();
+            input = sc.nextLine();
 
             StudentRepository studentRepository = StudentRepository.getInstance();
-//            Student currentStudent = studentRepository.getStudentByID(Integer.parseInt(input));
-            Student currentStudent = studentRepository.getStudentByID(9012901);
+            Student currentStudent = studentRepository.getStudentByID(Integer.parseInt(input));
+//            Student currentStudent = studentRepository.getStudentByID(9012901);
 
 
-//            System.out.println(Integer.parseInt(input));
+            System.out.println(Integer.parseInt(input));
 
+            boolean quit = false;
             if (currentStudent != null) {
-                while (true){
+                while (!quit){
                     System.out.println("Hi, " + currentStudent.getName() + "  " + currentStudent.getLastName());
-
-                    while (true) {
-                        VahedProcess vahedProcess = new VahedProcess(currentStudent);
+                    VahedProcess vahedProcess = new VahedProcess(currentStudent);
+                    while (!quit) {
                         vahedProcess.printOptions();
 
                         System.out.println();
@@ -38,17 +38,52 @@ public class Main {
                         vahedProcess.printCurrentBarnameh();
 
 
-                        System.out.println("barnameh size: " + vahedProcess.getSize());
+                        System.out.println("Please enter your action :");
+
+                        System.out.println("r : Remove option");
+                        System.out.println("a : Add option");
+                        System.out.println("v : Validate barnameh");
+                        System.out.println("c : Confirm barnameh");
+                        System.out.println("q : Quit");
                         System.out.println();
-                        System.out.println("Please enter the course index:");
+
                         input = sc.nextLine();
+                        switch (input.charAt(0)) {
+                            case 'v':
+                                if (vahedProcess.validateBarnameh()){
+                                    System.out.println("Your barnameh is OK!!");
+                                } else {
+                                    System.out.println("Your barnameh is not ok :(");
+                                }
+                                break;
+                            case 'c':
+                                if (vahedProcess.validateBarnameh()){
+                                    vahedProcess.confirmBarnameh();
+                                    System.out.println("Your barnameh is confirmed!!");
+                                } else {
+                                    System.out.println("Your barnameh is not ok :(");
+                                }
+                                break;
 
-                        vahedProcess.addOption(Integer.parseInt(input));
 
-                        if (input == "q")
-                            break;
+                            case 'a':
+                                System.out.println("Please enter the course index:");
+                                input = sc.nextLine();
+                                vahedProcess.addOption(Integer.parseInt(input));
+                                break;
+                            case 'r':
+                                System.out.println("Please enter the course index:");
+                                input = sc.nextLine();
+                                vahedProcess.removeOption(Integer.parseInt(input));
+                                break;
+                            case 'q':
+                                quit = true;
+                                break;
+                        }
+
                     }
-
+                    System.out.println();
+                    System.out.println();
                     break;
 
                 }
@@ -56,11 +91,6 @@ public class Main {
                 System.out.println("ID is not correct! please try again!");
                 continue;
             }
-
         }
-
-
-
-
     }
 }

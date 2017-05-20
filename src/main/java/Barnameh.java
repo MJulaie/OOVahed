@@ -9,25 +9,19 @@ import java.util.*;
 public class Barnameh implements Comparable<Barnameh> {
 
     private Map<Option, OptionState> optionList;
-    private ArrayList<String> temparray;
     private LocalDate startDate;
+    private boolean active;
 
     public Barnameh() {
         this.optionList = new HashMap<Option, OptionState>();
-        this.temparray = new ArrayList<String>();
         this.startDate = new LocalDate();
+        this.active = true;
     }
 
     public void addOption(Option selected){
 
         if(!optionList.containsKey(selected)) {
-            temparray.add("lskdj");
-            System.out.println(temparray.size());
-//
-//            System.out.println("Your selected option : " + selected);
-//            optionList.put(selected, new OptionState());
-//            System.out.println(this.startDate);
-//            System.out.println(this);
+            optionList.put(selected, new OptionState());
         }
         else
             System.out.println("You have Already Added this option!");
@@ -38,9 +32,6 @@ public class Barnameh implements Comparable<Barnameh> {
             optionList.remove(selected);
     }
 
-    public int getSize(){
-        return temparray.size();
-    }
 
     public int getVahedNumber() {
         int result = 0;
@@ -115,13 +106,17 @@ public class Barnameh implements Comparable<Barnameh> {
 
     }
 
+    public boolean isActive(){
+        return active;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        System.out.println("size : " + optionList.size());
+//        System.out.println("size : " + optionList.size());
         for (Option option : optionList.keySet()){
-            System.out.println("selected ! : " + option);
+//            System.out.println("selected ! : " + option);
             sb.append(option);
             sb.append('\n');
         }

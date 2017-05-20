@@ -1,7 +1,9 @@
+import org.joda.time.LocalDate;
+import org.joda.time.LocalTime;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by Ali on 5/18/2017 AD.
@@ -24,9 +26,6 @@ public class OptionRepository {
 
     private OptionRepository() throws ParseException {
 
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
 
         CourseRepository courseRepository = CourseRepository.getInstance();
         TeacherRepository teacherRepository = TeacherRepository.getInstance();
@@ -41,17 +40,17 @@ public class OptionRepository {
         Course course4 = courseRepository.getCourseByName("d");
         Course course5 = courseRepository.getCourseByName("e");
 
-        CourseTime courseTime1 = new CourseTime("shanbeh", timeFormat.parse("10:30"), timeFormat.parse("12:00"));
-        CourseTime courseTime2 = new CourseTime("shanbeh", timeFormat.parse("15:30"), timeFormat.parse("17:00"));
-        CourseTime courseTime3 = new CourseTime("yekshanbeh", timeFormat.parse("9:00"), timeFormat.parse("10:30"));
-        CourseTime courseTime4 = new CourseTime("doshanbeh", timeFormat.parse("9:00"), timeFormat.parse("10:30"));
-        CourseTime courseTime5 = new CourseTime("doshanbeh", timeFormat.parse("10:30"), timeFormat.parse("12:00"));
+        CourseSlot courseTime1 = new CourseSlot("shanbeh",new TimeInterval(10,30,12,0));
+        CourseSlot courseTime2 = new CourseSlot("shanbeh",new TimeInterval(15,30,17,0));
+        CourseSlot courseTime3 = new CourseSlot("yekshanbeh", new TimeInterval(9,0,10,30));
+        CourseSlot courseTime4 = new CourseSlot("doshanbeh", new TimeInterval(9,0,10,30));
+        CourseSlot courseTime5 = new CourseSlot("doshanbeh", new TimeInterval(10,30,12,0));
 
-        ExamDate examDate1 = new ExamDate(dateFormat.parse("1396-3-2"), timeFormat.parse("14:30"), timeFormat.parse("18:00"));
-        ExamDate examDate2 = new ExamDate(dateFormat.parse("1396-3-3"), timeFormat.parse("14:30"), timeFormat.parse("18:00"));
-        ExamDate examDate3 = new ExamDate(dateFormat.parse("1396-3-4"), timeFormat.parse("12:30"), timeFormat.parse("15:30"));
-        ExamDate examDate4 = new ExamDate(dateFormat.parse("1396-3-4"), timeFormat.parse("14:30"), timeFormat.parse("17:30"));
-        ExamDate examDate5 = new ExamDate(dateFormat.parse("1396-3-5"), timeFormat.parse("9:00"), timeFormat.parse("12:30"));
+        ExamDate examDate1 = new ExamDate(new LocalDate(1396,3,2), new TimeInterval(14,30,18,0));
+        ExamDate examDate2 = new ExamDate(new LocalDate(1396,3,3), new TimeInterval(14 ,30,18,0));
+        ExamDate examDate3 = new ExamDate(new LocalDate(1396,3,4), new TimeInterval(12,30,15,0));
+        ExamDate examDate4 = new ExamDate(new LocalDate(1396,3,5), new TimeInterval(14,30,17,30));
+        ExamDate examDate5 = new ExamDate(new LocalDate(1396,3,6), new TimeInterval(9,0,10,30));
 
         Option option1 = new Option(course1, teacher1, courseTime1, examDate1, 30, 13962);
         Option option2 = new Option(course1, teacher2, courseTime2, examDate2, 25, 13962);

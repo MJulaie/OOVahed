@@ -1,6 +1,4 @@
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by mohammad on 5/17/17.
@@ -8,37 +6,54 @@ import java.util.Date;
 public class Option {
     private Course course;
     private Teacher teacher;
-    private ArrayList<CourseTime> courseTimes = new ArrayList<CourseTime>();
+    private ArrayList<CourseSlot> courseTimes = new ArrayList<CourseSlot>();
     private ExamDate examDate;
     private int capacity;
     private int semesterID;
     private boolean available;
 
 
-    public Option(Course course, Teacher teacher, CourseTime courseTime, ExamDate examDate, int capacity, Integer semesterID) {
+    public Option(Course course, Teacher teacher, CourseSlot courseSlot, ExamDate examDate, int capacity,int semesterID) {
         this.course = course;
         this.teacher = teacher;
-        this.courseTimes.add(courseTime);
+        this.courseTimes.add(courseSlot);
         this.examDate = examDate;
         this.capacity = capacity;
         this.semesterID = semesterID;
-        this.available = true;
     }
 
-    public int getVahedNumber() { return course.getVahedNumber(); }
-
-    public void addCourseTime(CourseTime newCourseTime){
-        courseTimes.add(newCourseTime);
+    public int getVahedNumber() {
+        return course.getVahedNumber();
     }
 
     public boolean isAvailable(){
         return available;
     }
 
-    public void setAvailablity(boolean availablityState){
-        this.available = availablityState;
-    }
     public Course getCourse() {
         return course;
+    }
+
+    public boolean haveCapacity(){
+        return this.capacity > 0;
+    }
+
+    public void decreaseCapacity(){
+        this.capacity -= 1;
+    }
+
+    public void addCourseSlot(CourseSlot courseSlot){
+        this.courseTimes.add(courseSlot);
+    }
+
+    public boolean hasOverlap(Option option){
+
+        for(CourseSlot courseTime : courseTimes)
+            for(CourseSlot optionCourseTime : option.courseTimes)
+                if(courseTime.hasOverlap(optionCourseTime))
+                    return false;
+        if(examDate.equals(option.examDate))
+            return false;
+        return true;
     }
 }

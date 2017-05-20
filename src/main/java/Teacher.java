@@ -8,4 +8,5 @@ public class Teacher extends Person {
         super(name, family, nationalID);
         this.enteranceYear = enteranceYear;
     }
+
 }

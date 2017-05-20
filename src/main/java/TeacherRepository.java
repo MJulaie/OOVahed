@@ -14,17 +14,21 @@ public class TeacherRepository {
     private TeacherRepository() {
 
         Teacher teacher1 = new Teacher("ali","karimi", 1390, 91919);
-        Teacher teacher2 = new Teacher("mohammad","julayi", 1290, 91842);
+        Teacher teacher2 = new Teacher("mohammad","julayi", 1370, 91842);
+        Teacher teacher3 = new Teacher("ramtin","khosravi", 1380, 19042);
+
 
         teachers.add(teacher1);
         teachers.add(teacher2);
+        teachers.add(teacher3);
+
     }
 
-    public Teacher getTeacherByName(String teacherName, Integer nationalID){
+    public Teacher getTeacherByID(Integer nationalID){
         for (Teacher teacher : teachers){
-//            if (teacher.getName().equals(teacherName)){
-//                return teacher;
-//            }
+            if (teacher.getNationalID() == nationalID){
+                return teacher;
+            }
         }
         return null;
     }

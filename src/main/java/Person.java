@@ -4,12 +4,24 @@
 public abstract class Person {
 
     protected String name;
-    protected String family;
+    protected String lastName;
     protected Integer nationalID;
 
-    public Person(String name, String family, Integer nationalID) {
+    public Person(String name, String lastName, Integer nationalID) {
         this.name = name;
-        this.family = family;
+        this.lastName = lastName;
         this.nationalID = nationalID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Integer getNationalID() {
+        return nationalID;
     }
 }

@@ -6,12 +6,14 @@ import java.util.Date;
  */
 public class CourseTime {
     private String dayOfWeek;
-    private SimpleDateFormat startTime = new SimpleDateFormat("HH:mm");
-    private SimpleDateFormat endTime = new SimpleDateFormat("HH:mm");
+    private Date startTime;
+    private Date endTime;
 
-    public CourseTime(String dayOfWeek, SimpleDateFormat startTime, SimpleDateFormat endTime) {
+    public CourseTime(String dayOfWeek, Date startTime, Date endTime) {
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
         this.endTime = endTime;
+
+
     }
 }

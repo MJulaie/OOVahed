@@ -8,6 +8,35 @@ import java.util.*;
 
 public class Main {
 
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        String input;
+////        while (true){
+////            System.out.println("Hi, please enter your student number: ");
+////            input = sc.nextLine();
+//
+//            StudentRepository studentRepository = StudentRepository.getInstance();
+////            Student currentStudent = studentRepository.getStudentByStudentNumber(Integer.parseInt(input));
+//            Student currentStudent = studentRepository.getStudentByStudentNumber(810192391);
+//
+//
+////            System.out.println(Integer.parseInt(input));
+//
+//            boolean quit = false;
+//            if (currentStudent != null) {
+//                while (!quit){
+//                    System.out.println("Hi  " + currentStudent.getName() + "   " + currentStudent.getLastName() + "  :)");
+//                    System.out.println("You want to see your remain courses? ");
+//                    System.out.println();
+//                    currentStudent.isGraduate();
+//                    break;
+//                }
+//            } else {
+//                System.out.println("ID is not correct! please try again!");
+////                continue;
+//            }
+////        }
+//    }
 
 
     public static void main(String[] args) {

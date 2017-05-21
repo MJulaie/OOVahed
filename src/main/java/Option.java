@@ -11,20 +11,26 @@ public class Option {
     private int capacity;
     private int semesterID;
     private boolean available;
+    private int optionID;
 
 
-    public Option(Course course, Teacher teacher, CourseSlot courseSlot, ExamDate examDate, int capacity,int semesterID) {
+    public Option(Course course, Teacher teacher, CourseSlot courseSlot, ExamDate examDate, int capacity,int semesterID, int optionID) {
         this.course = course;
         this.teacher = teacher;
         this.courseTimes.add(courseSlot);
         this.examDate = examDate;
         this.capacity = capacity;
         this.semesterID = semesterID;
+        this.optionID = optionID;
         this.available = true;
     }
 
     public int getVahedNumber() {
         return course.getVahedNumber();
+    }
+
+    public int getOptionID() {
+        return optionID;
     }
 
     public boolean isAvailable(){

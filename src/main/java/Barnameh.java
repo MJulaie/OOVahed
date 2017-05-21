@@ -29,6 +29,12 @@ public class Barnameh implements Comparable<Barnameh> {
         this.active = true;
     }
 
+    public void setActiveFlag(boolean activeFlag){
+        this.active = activeFlag;
+    }
+    public void addOption(Option newOption, int grade, OptionLiveState state){
+        optionList.put(newOption, new OptionState(grade, state));
+    }
     public void addOption(Option selected){
 
         if(!optionList.containsKey(selected)) {

@@ -13,12 +13,29 @@ public class StudentRepository {
 
     private StudentRepository(){
         ReshtehRepository reshtehRepository = ReshtehRepository.getInstance();
+        OptionRepository optionRepository = OptionRepository.getInstance();
+
+        Barnameh newBarnameh1 = new Barnameh();
+        newBarnameh1.setActiveFlag(false);
+        newBarnameh1.addOption(optionRepository.getOptionByID(1), 13, OptionLiveState.PASSSHODEH);
+        newBarnameh1.addOption(optionRepository.getOptionByID(3), 15, OptionLiveState.PASSSHODEH);
+        newBarnameh1.addOption(optionRepository.getOptionByID(4), 16, OptionLiveState.PASSSHODEH);
+        newBarnameh1.addOption(optionRepository.getOptionByID(5), 14, OptionLiveState.PASSSHODEH);
+
+        Barnameh newBarnameh2 = new Barnameh();
+        newBarnameh2.setActiveFlag(false);
+        newBarnameh2.addOption(optionRepository.getOptionByID(7), 19, OptionLiveState.PASSSHODEH);
+        newBarnameh2.addOption(optionRepository.getOptionByID(8), 20, OptionLiveState.PASSSHODEH);
+//        newBarnameh2.addOption(optionRepository.getOptionByID(9), 18, OptionLiveState.PASSSHODEH);
+
 
         Gerayesh gerayesh1 = reshtehRepository.getGerayeshByName("ghodrat");
-        Gerayesh gerayesh2 = reshtehRepository.getGerayeshByName("mokhaberat");
 
         Student student1 = new Student("kazem", "akbari", 9012901, 810192456, gerayesh1, 1392);
         Student student2 = new Student("nasim", "rajavi", 9030103, 810192391, gerayesh1, 1392);
+
+        student2.addBarnameh(newBarnameh1);
+        student2.addBarnameh(newBarnameh2);
 
         students.add(student1);
         students.add(student2);

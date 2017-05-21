@@ -29,8 +29,6 @@ public class ReshtehRepository {
         ghodratChart.addCourse(course6);
         Course course7 = courseRepo.getCourseByName("g");
         ghodratChart.addCourse(course7);
-        Course course8 = courseRepo.getCourseByName("h");
-        ghodratChart.addCourse(course8);
 
         return ghodratChart;
     }

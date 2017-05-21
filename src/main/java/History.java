@@ -16,7 +16,7 @@ public class History {
 
         Collections.sort(semesters);
 
-        for (int i = semesters.size() - 1; i >= 0; i++){
+        for (int i = semesters.size() - 1; i >= 0; i--){
             if (semesters.get(i).isActive()) {
                 continue;
             }
@@ -42,12 +42,10 @@ public class History {
     public Barnameh getActiveBarnameh(){
 
         for (Barnameh barnameh : semesters){
-            System.out.println(semesters.get(0));
             if (barnameh.isActive()){
                 return barnameh;
             }
         }
-
         return new Barnameh();
     }
 }

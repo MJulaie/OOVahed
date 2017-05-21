@@ -5,6 +5,13 @@ public class OptionState{
     private int score = -1;
     private OptionLiveState state = OptionLiveState.DARHALEGOZARANDAN;
 
+    public OptionState() {}
+
+    public OptionState(int score, OptionLiveState state) {
+        this.score = score;
+        this.state = state;
+    }
+
     public int getScore() {
         return score;
     }

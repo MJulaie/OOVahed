@@ -29,8 +29,13 @@ public class TimeInterval {
     }
 
     public boolean hasOverlap(TimeInterval timeInterval){
-        return startTime.isBefore(timeInterval.getEndTime())
-                && timeInterval.getStartTime().isBefore(endTime);
+        System.out.println(timeInterval.getStartTime().isBefore(endTime));
+        System.out.println("start time : " + timeInterval.getStartTime());
+        System.out.println("end time : " + timeInterval.getEndTime());
+        System.out.println("start : " + startTime);
+        System.out.println("end : " + endTime);
+        return startTime.isBefore(timeInterval.getEndTime()) && !startTime.isEqual(timeInterval.getEndTime())
+                && timeInterval.getStartTime().isBefore(endTime) && timeInterval.getStartTime().isEqual(endTime);
     }
 
     @Override

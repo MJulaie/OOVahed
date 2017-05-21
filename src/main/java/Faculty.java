@@ -4,8 +4,13 @@
 public class Faculty implements FacultyServices {
 
     private VahedSelectionService vahedSelectionService = new VahedSelectionService();
+    private GraduationService graduationService = new GraduationService();
 
     public VahedSelectionService getVahedSelectionService() {
         return vahedSelectionService;
+    }
+
+    public GraduationService getGraduationService() {
+        return graduationService;
     }
 }

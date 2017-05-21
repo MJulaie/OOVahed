@@ -3,4 +3,5 @@
  */
 public interface FacultyServices {
     VahedSelectionService getVahedSelectionService();
+    GraduationService getGraduationService();
 }

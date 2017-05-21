@@ -37,16 +37,21 @@ public class Gerayesh {
         Iterator year = yearSet.iterator();
 
         Map.Entry<Integer, Chart> entry = (Map.Entry<Integer, Chart>) year.next();
+        Integer authorizedYear = entry.getKey();
+        Chart authorizedChart = entry.getValue();
+
         while(year.hasNext()){
             entry = (Map.Entry<Integer, Chart>) year.next();
+            authorizedYear = entry.getKey();
+            authorizedChart = entry.getValue();
 
-            if (entry.getKey() > enterance){
+            if (authorizedYear > enterance){
                 continue;
             }
             break;
         }
 
-        return entry.getValue();
+        return authorizedChart;
     }
 
 

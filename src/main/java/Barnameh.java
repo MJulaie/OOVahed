@@ -60,15 +60,20 @@ public class Barnameh implements Comparable<Barnameh> {
     }
 
     public float calculateRate() {
+
         int allVahed = 0;
         int result = 0;
 
 
         for (Map.Entry<Option, OptionState> entry : optionList.entrySet()){
-            if (entry.getValue().getState() == OptionLiveState.MARDOOD||
-            entry.getValue().getState() == OptionLiveState.PASSSHODEH){
-                allVahed += entry.getKey().getVahedNumber();
-                result += entry.getValue().getScore() * entry.getKey().getVahedNumber();
+
+            Option passedOption = entry.getKey();
+            OptionState passedOptionState = entry.getValue();
+
+            if (passedOptionState.getState() == OptionLiveState.MARDOOD||
+            passedOptionState.getState() == OptionLiveState.PASSSHODEH){
+                allVahed += passedOption.getVahedNumber();
+                result += passedOptionState.getScore() * passedOption.getVahedNumber();
             }
         }
 
@@ -79,8 +84,11 @@ public class Barnameh implements Comparable<Barnameh> {
         ArrayList<Course> passedCourses = new ArrayList<Course>();
 
         for (Map.Entry<Option, OptionState> entry : optionList.entrySet()){
-            if (entry.getValue().isPassed()) {
-                passedCourses.add(entry.getKey().getCourse());
+            Option passedOption = entry.getKey();
+            OptionState passedOptionState = entry.getValue();
+
+            if (passedOptionState.isPassed()) {
+                passedCourses.add(passedOption.getCourse());
             }
         }
 

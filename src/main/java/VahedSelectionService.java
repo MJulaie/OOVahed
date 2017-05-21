@@ -11,6 +11,11 @@ public class VahedSelectionService {
     public VahedSelectionService() {
         this.barnamehRules = new ArrayList<BarnamehPolicyChecker>();
         this.studentRules = new ArrayList<StudentPolicyChecker>();
+
+        barnamehRules.add(new CapacityChecker());
+        barnamehRules.add(new TimeCompatibilityChecker());
+
+        studentRules.add(new VahedNumberChecker());
         /* Add Rules or Removing Dynamicly
          can using Reflection
          */
@@ -36,15 +41,13 @@ public class VahedSelectionService {
     }
 
     public boolean Register(Barnameh barnameh, StudentState studentState,History history){
+
+
         if(validateBarnameh(barnameh, studentState, history)) {
             history.addBarnameh(barnameh);
-
-            for(Option option : barnameh.getOptions())
-                option.decreaseCapacity();
-
-
             return true;
         }
+
         return false;
     }
 

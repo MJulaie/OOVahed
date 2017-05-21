@@ -15,8 +15,10 @@ public class SensitiveCourseChecker extends BarnamehPolicyChecker {
     @Override
     public boolean satisfy(Barnameh barnameh) {
         for(Course course : sensitiveCourses)
-            if(barnameh.hasCourse(course))
+            if(barnameh.hasCourse(course)){
+                System.out.println("You have sensitive course like karamoozi! remove it : )");
                 return false;
+            }
         return true;
     }
 }

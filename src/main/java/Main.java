@@ -15,11 +15,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String input;
         while (true){
-            System.out.println("Hi, please enter your ID: ");
+            System.out.println("Hi, please enter your student number: ");
             input = sc.nextLine();
 
             StudentRepository studentRepository = StudentRepository.getInstance();
-            Student currentStudent = studentRepository.getStudentByID(Integer.parseInt(input));
+            Student currentStudent = studentRepository.getStudentByStudentNumber(Integer.parseInt(input));
 //            Student currentStudent = studentRepository.getStudentByID(9012901);
 
 
@@ -28,7 +28,7 @@ public class Main {
             boolean quit = false;
             if (currentStudent != null) {
                 while (!quit){
-                    System.out.println("Hi, " + currentStudent.getName() + "  " + currentStudent.getLastName());
+                    System.out.println("Hi  " + currentStudent.getName() + "   " + currentStudent.getLastName() + "  :)");
                     VahedProcess vahedProcess = new VahedProcess(currentStudent);
                     while (!quit) {
                         vahedProcess.printOptions();
@@ -53,7 +53,7 @@ public class Main {
                                 if (vahedProcess.validateBarnameh()){
                                     System.out.println("Your barnameh is OK!!");
                                 } else {
-                                    System.out.println("Your barnameh is not ok :(");
+                                    System .out.println("Your barnameh is not ok :(");
                                 }
                                 break;
                             case 'c':
@@ -67,16 +67,17 @@ public class Main {
 
 
                             case 'a':
-                                System.out.println("Please enter the course index:");
+                                System.out.println("Please enter the course index for add:");
                                 input = sc.nextLine();
                                 vahedProcess.addOption(Integer.parseInt(input));
                                 break;
                             case 'r':
-                                System.out.println("Please enter the course index:");
+                                System.out.println("Please enter the course index for remove:");
                                 input = sc.nextLine();
                                 vahedProcess.removeOption(Integer.parseInt(input));
                                 break;
                             case 'q':
+                                vahedProcess.reverseCapacity();
                                 quit = true;
                                 break;
                         }

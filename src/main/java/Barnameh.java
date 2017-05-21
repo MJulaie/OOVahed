@@ -18,6 +18,17 @@ public class Barnameh implements Comparable<Barnameh> {
         this.active = true;
     }
 
+    public Barnameh(ArrayList<Option> options){
+        this.optionList = new HashMap<Option, OptionState>();
+
+        for (Option option : options){
+            optionList.put(option, new OptionState());
+        }
+
+        this.startDate = new LocalDate();
+        this.active = true;
+    }
+
     public void addOption(Option selected){
 
         if(!optionList.containsKey(selected)) {
@@ -91,8 +102,8 @@ public class Barnameh implements Comparable<Barnameh> {
         return result;
     }
 
-    public Set<Option> getOptions(){
-        return optionList.keySet();
+    public ArrayList<Option> getOptions(){
+        return new ArrayList<Option>(optionList.keySet());
     }
 
     public int compareTo(Barnameh barnameh) {
@@ -114,9 +125,7 @@ public class Barnameh implements Comparable<Barnameh> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-//        System.out.println("size : " + optionList.size());
         for (Option option : optionList.keySet()){
-//            System.out.println("selected ! : " + option);
             sb.append(option);
             sb.append('\n');
         }

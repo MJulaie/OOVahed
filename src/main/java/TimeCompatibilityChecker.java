@@ -8,14 +8,31 @@ public class TimeCompatibilityChecker extends BarnamehPolicyChecker {
 
     @Override
     public boolean satisfy(Barnameh barnameh) {
-        Set<Option> optionSet = barnameh.getOptions();
+        ArrayList<Option> optionList = barnameh.getOptions();
 
-        for(Option option1 : optionSet)
-            for (Option option2 : optionSet)
-                if(!option1.equals(option2))
-                    if(option1.hasOverlap(option2))
-                        return false;
+        boolean overlapp = false;
+        for(int i = 0; i < optionList.size(); i++){
+            for (int j = i + 1; j < optionList.size(); j++){
 
-        return true;
+                if(!optionList.get(i).equals(optionList.get(j))){
+                    if(optionList.get(i).hasOverlap(optionList.get(j))){
+                        overlapp = true;
+                        System.out.println("|||");
+                        System.out.println("This two option have overlapp : ");
+                        System.out.println(optionList.get(i));
+                        System.out.println(optionList.get(j));
+                        System.out.println("|||");
+                    }
+
+                }
+
+            }
+
+        }
+
+        if (overlapp)
+            return false;
+        else
+            return true;
     }
 }

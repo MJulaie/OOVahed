@@ -17,16 +17,16 @@ public class StudentRepository {
         Gerayesh gerayesh1 = reshtehRepository.getGerayeshByName("ghodrat");
         Gerayesh gerayesh2 = reshtehRepository.getGerayeshByName("mokhaberat");
 
-        Student student1 = new Student("kazem", "akbari", 9012901, gerayesh1, 1392);
-        Student student2 = new Student("nasim", "rajavi", 9030103, gerayesh1, 1392);
+        Student student1 = new Student("kazem", "akbari", 9012901, 810192456, gerayesh1, 1392);
+        Student student2 = new Student("nasim", "rajavi", 9030103, 810192391, gerayesh1, 1392);
 
         students.add(student1);
         students.add(student2);
     }
 
-    public Student getStudentByID(Integer studentID) {
+    public Student getStudentByStudentNumber(Integer studentNumber) {
         for (Student student : students) {
-            if (student.getNationalID().equals(studentID)) {
+            if (student.getStudentNumber().equals(studentNumber)) {
                 return student;
             }
         }

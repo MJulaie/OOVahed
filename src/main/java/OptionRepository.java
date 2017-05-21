@@ -52,12 +52,12 @@ public class OptionRepository {
         ExamDate examDate4 = new ExamDate(new LocalDate(1396,3,5), new TimeInterval(14,30,17,30));
         ExamDate examDate5 = new ExamDate(new LocalDate(1396,3,6), new TimeInterval(9,0,10,30));
 
-        Option option1 = new Option(course1, teacher1, courseTime1, examDate1, 30, 13962);
-        Option option2 = new Option(course1, teacher2, courseTime2, examDate2, 25, 13962);
-        Option option3 = new Option(course2, teacher2, courseTime5, examDate3, 25, 13962);
-        Option option4 = new Option(course3, teacher3, courseTime3, examDate4, 45, 13962);
-        Option option5 = new Option(course4, teacher3, courseTime4, examDate5, 55, 13962);
-        Option option6 = new Option(course5, teacher1, courseTime5, examDate5, 55, 13962);
+        Option option1 = new Option(course1, teacher1, courseTime1, examDate1, 0, 13962);
+        Option option2 = new Option(course1, teacher2, courseTime2, examDate2, 0, 13962);
+        Option option3 = new Option(course2, teacher2, courseTime5, examDate3, 1, 13962);
+        Option option4 = new Option(course3, teacher3, courseTime3, examDate4, 1, 13962);
+        Option option5 = new Option(course4, teacher3, courseTime4, examDate5, 1, 13962);
+        Option option6 = new Option(course5, teacher1, courseTime5, examDate5, 1, 13962);
         Option option7 = new Option(course5, teacher1, courseTime3, examDate1, 25, 13962);
 
         options.add(option1);

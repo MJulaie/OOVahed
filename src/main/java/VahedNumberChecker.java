@@ -21,8 +21,9 @@ public class VahedNumberChecker extends StudentPolicyChecker {
         float lastRate = history.calculateLastSemesterRate();
         boolean mashroot;
         boolean nokhbeh;
+        boolean newStudent = (lastRate == -1) ? true : false;
 
-        if (lastRate < MASHROOT_RATE) {
+        if (lastRate < MASHROOT_RATE && !newStudent) {
             mashroot = true;
         } else {
             mashroot = false;
@@ -54,6 +55,11 @@ public class VahedNumberChecker extends StudentPolicyChecker {
                 else {
                     if (vahedNumber >= MINIMUM_FOR_AADI && vahedNumber <= MAXIMUM_FOR_OTHER ){
                         return true;
+                    } else {
+                        System.out.println("|||");
+                        System.out.println("minimum or maximum vahed number not satisfied, try again :(");
+                        System.out.println("|||");
+
                     }
                 }
                 break;

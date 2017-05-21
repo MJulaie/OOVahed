@@ -13,10 +13,18 @@ public class History {
 
 
     public float calculateLastSemesterRate(){
-        Collections.sort(semesters);
-        Barnameh lastBarnameh = semesters.get(semesters.size() - 1);
-        return lastBarnameh.calculateRate();
 
+        Collections.sort(semesters);
+
+        for (int i = semesters.size() - 1; i >= 0; i++){
+            if (semesters.get(i).isActive()) {
+                continue;
+            }
+            Barnameh lastBarnameh = semesters.get(i);
+            return lastBarnameh.calculateRate();
+        }
+
+        return -1;
     }
 
     public ArrayList<Course> getPassedCourses(){

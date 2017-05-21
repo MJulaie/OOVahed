@@ -35,13 +35,20 @@ public class Option {
         return course;
     }
 
+    public ArrayList<CourseSlot> getCourseTimes() {
+        return courseTimes;
+    }
+
+
     public boolean haveCapacity(){
-        return this.capacity > 0;
+        return this.capacity >= 0;
     }
 
     public void decreaseCapacity(){
         this.capacity -= 1;
     }
+
+    public void increaseCapacity() { this.capacity += 1; }
 
     public void addCourseSlot(CourseSlot courseSlot){
         this.courseTimes.add(courseSlot);
@@ -50,16 +57,20 @@ public class Option {
     public boolean hasOverlap(Option option){
 
         for(CourseSlot courseTime : courseTimes)
-            for(CourseSlot optionCourseTime : option.courseTimes)
+            for(CourseSlot optionCourseTime : option.getCourseTimes())
                 if(courseTime.hasOverlap(optionCourseTime))
-                    return false;
+                    return true;
         if(examDate.equals(option.examDate))
-            return false;
-        return true;
+            return true;
+        return false;
     }
 
     @Override
     public String toString() {
-        return course.getName() + "  |  " + teacher.getName() + " " + teacher.getLastName() + "  |  " + courseTimes.get(0).toString();
+        return course.getName() + "  |  "
+                + teacher.getName() + " "
+                + teacher.getLastName() + "  |  "
+                + courseTimes.get(0).toString() + " | size : "
+                + (capacity >= 0 ? capacity : 0);
     }
 }

@@ -6,11 +6,17 @@ public class CapacityChecker extends BarnamehPolicyChecker {
     @Override
     public boolean satisfy(Barnameh barnameh) {
 
+        boolean hasNotCapacity = false;
         for(Option option : barnameh.getOptions()){
-            if(!option.haveCapacity())
-                return false;
+            if(!option.haveCapacity()){
+                hasNotCapacity = true;
+                System.out.println("this option : " + option + " has not capacity for you :( try again later!");
+            }
         }
 
-        return true;
+        if (hasNotCapacity)
+            return false;
+        else
+            return true;
     }
 }

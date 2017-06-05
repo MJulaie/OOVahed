@@ -36,6 +36,16 @@ public class StudentInfo {
     }
 
     public ArrayList<Course> getRemainCourse(ArrayList<Course> passedCourses){
-        return this.getNormalChart().getRemainCourses(passedCourses);
+
+        ArrayList<Course> remainCourses = this.getNormalChart().getRemainCourses(passedCourses);
+
+        if(minor != null) {
+            ArrayList<Course> minorRemainCourse = this.getMinorChart().getRemainCourses(passedCourses);
+            remainCourses.removeAll(minorRemainCourse);
+            remainCourses.addAll(minorRemainCourse);
+        }
+
+        return remainCourses;
+
     }
 }

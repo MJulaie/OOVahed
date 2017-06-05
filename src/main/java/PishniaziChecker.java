@@ -12,7 +12,7 @@ public class PishniaziChecker extends StudentPolicyChecker {
 
     public boolean satisfy(Barnameh barnameh, StudentState studentState, History history, StudentInfo studentInfo){
 
-        Chart studentChart = studentInfo.getChart();
+        NormalChart studentChart = studentInfo.getNormalChart();
         ArrayList<Course> passedCourses = history.getPassedCourses();
 
         ArrayList<Course> selectedCourses = barnameh.getCourses();

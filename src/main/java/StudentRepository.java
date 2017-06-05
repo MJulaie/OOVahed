@@ -29,10 +29,18 @@ public class StudentRepository {
 //        newBarnameh2.addOption(optionRepository.getOptionByID(9), 18, OptionLiveState.PASSSHODEH);
 
 
+
         Gerayesh gerayesh1 = reshtehRepository.getGerayeshByName("ghodrat");
+
+        Reshteh bargh = reshtehRepository.getReshtehByName("Bargh");
+        Reshteh fizik = reshtehRepository.getReshtehByName("Fizik");
+
+        Minor minor = reshtehRepository.getMinorByReshteh(fizik, bargh);
 
         Student student1 = new Student("kazem", "akbari", 9012901, 810192456, gerayesh1, 1392);
         Student student2 = new Student("nasim", "rajavi", 9030103, 810192391, gerayesh1, 1392);
+
+        student1.setMinor(minor);
 
         student2.addBarnameh(newBarnameh1);
         student2.addBarnameh(newBarnameh2);

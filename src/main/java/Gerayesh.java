@@ -6,8 +6,9 @@ import java.util.*;
  */
 public class Gerayesh {
     private String name;
+    private Reshteh reshteh;
     private String reshtehName;
-    private Map<Integer, Chart> mappedCharts = new TreeMap<Integer, Chart>(Collections.reverseOrder());
+    private Map<Integer, NormalChart> mappedCharts = new TreeMap<Integer, NormalChart>(Collections.reverseOrder());
 
 
     public Gerayesh(String name) {
@@ -26,22 +27,22 @@ public class Gerayesh {
         return name;
     }
 
-    public void addChart(Chart newChart, Integer currentYear){
+    public void addChart(NormalChart newChart, Integer currentYear){
         mappedCharts.put(currentYear, newChart);
     }
 
-    public Chart getChartByEnterance(Integer enterance){
+    public NormalChart getChartByEnterance(Integer enterance){
 
 
         Set yearSet = mappedCharts.entrySet();
         Iterator year = yearSet.iterator();
 
-        Map.Entry<Integer, Chart> entry = (Map.Entry<Integer, Chart>) year.next();
+        Map.Entry<Integer, NormalChart> entry = (Map.Entry<Integer, NormalChart>) year.next();
         Integer authorizedYear = entry.getKey();
-        Chart authorizedChart = entry.getValue();
+        NormalChart authorizedChart = entry.getValue();
 
         while(year.hasNext()){
-            entry = (Map.Entry<Integer, Chart>) year.next();
+            entry = (Map.Entry<Integer, NormalChart>) year.next();
             authorizedYear = entry.getKey();
             authorizedChart = entry.getValue();
 

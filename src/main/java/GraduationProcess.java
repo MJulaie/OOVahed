@@ -16,18 +16,6 @@ public class GraduationProcess {
     public boolean isGraduate(){
         StudentInfo studentInfo = student.getStudentInfo();
         History studentHistory = student.getHistory();
-        Chart studentChart = studentInfo.getChart();
-        ArrayList<Course> passedCourses = studentHistory.getPassedCourses();
-        ArrayList<Course> remainCourses = studentChart.getRemainCourses(passedCourses);
-        if (remainCourses.size() == 0){
-            System.out.println("TABRIK , TO GRADUATE SHODI :)))) ");
-            return true;
-        }
-
-        System.out.println("Your remain courses : ");
-        for (Course course : remainCourses){
-            System.out.println(course);
-        }
-        return false;
+        return graduationService.validateGraduation(studentInfo, studentHistory);
     }
 }

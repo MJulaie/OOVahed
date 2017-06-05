@@ -26,8 +26,13 @@ public class CourseRepository {
         courses.add(new Course("k", 5, 8955));
         courses.add(new Course("l", 5, 4404));
         courses.add(new Course("m", 5, 8888));
-        courses.add(new Course("n", 6, 8491));
-        courses.add(new Course("o", 6, 8144));
+        courses.add(new Course("n", 5, 8491));
+        courses.add(new Course("o", 5, 8144));
+        courses.add(new Course("p", 5, 9994));
+        courses.add(new Course("q", 5, 8644));
+        courses.add(new Course("r", 5, 1114));
+
+
 
     }
 

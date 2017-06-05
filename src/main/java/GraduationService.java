@@ -1,14 +1,18 @@
-import java.util.ArrayList;
-
 /**
  * Created by mohammad on 5/21/17.
  */
 public class GraduationService {
 
-    ArrayList<GraduationStrategy> graduationStrategies = new ArrayList<GraduationStrategy>();
+    GraduationStrategy graduationStrategy;
 
     public boolean validateGraduation(StudentInfo studentInfo, History history){
-        return false;
+        if (studentInfo.hasMinor()){
+            graduationStrategy = new WithMinorStrategy();
+        } else {
+            graduationStrategy = new NormalStrategy();
+        }
+
+        return graduationStrategy.satisfy(studentInfo, history);
     }
 
     public boolean graduate(Student student){

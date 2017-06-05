@@ -11,9 +11,9 @@ public class ReshtehRepository {
         return instance;
     }
 
-    private Chart initChart(){
+    private NormalChart initNormalChart(){
         CourseRepository courseRepo = CourseRepository.getInstance();
-        Chart ghodratChart = new Chart();
+        NormalChart ghodratChart = new NormalChart();
 
         Course course1 = courseRepo.getCourseByName("a");
         ghodratChart.addCourse(course1);
@@ -30,31 +30,67 @@ public class ReshtehRepository {
         Course course7 = courseRepo.getCourseByName("g");
         ghodratChart.addCourse(course7);
 
+        Course course8 = courseRepo.getCourseByName("h");
+        ghodratChart.addOptionalCourses(course8);
+        Course course9 = courseRepo.getCourseByName("i");
+        ghodratChart.addOptionalCourses(course9);
+        Course course10 = courseRepo.getCourseByName("j");
+        ghodratChart.addOptionalCourses(course10);
+
+
         return ghodratChart;
+    }
+
+    private MinorChart initMinorChart(){
+        CourseRepository courseRepo = CourseRepository.getInstance();
+        MinorChart minorChart = new MinorChart();
+
+
+        Course course1 = courseRepo.getCourseByName("l");
+        minorChart.addNormalCourse(course1);
+        Course course2 = courseRepo.getCourseByName("m");
+        minorChart.addNormalCourse(course2);
+        Course course3 = courseRepo.getCourseByName("g");
+        minorChart.addNormalCourse(course3);
+
+        Course course4 = courseRepo.getCourseByName("n");
+        Course course5 = courseRepo.getCourseByName("o");
+        ArrayList<Course> branchCourses1 = new ArrayList<Course>();
+        branchCourses1.add(course4);
+        branchCourses1.add(course5);
+        minorChart.addBranchCourses(branchCourses1);
+
+        Course course6 = courseRepo.getCourseByName("p");
+        Course course7 = courseRepo.getCourseByName("q");
+        ArrayList<Course> branchCourses2 = new ArrayList<Course>();
+        branchCourses2.add(course6);
+        branchCourses2.add(course7);
+        minorChart.addBranchCourses(branchCourses2);
+
+
+
+        return minorChart;
     }
 
     private ReshtehRepository() {
 
         Reshteh bargh = new Reshteh("Bargh");
-        Chart ghodratChart = initChart();
-
+        Reshteh fizik = new Reshteh("Fizik");
+        NormalChart ghodratChart = initNormalChart();
+        MinorChart fizikMinorChart = initMinorChart();
 
         Gerayesh ghodrat = new Gerayesh("ghodrat");
         Gerayesh mokhaberat = new Gerayesh("mokhaberat");
-
         ghodrat.addChart(ghodratChart, 1396);
 
         bargh.addGerayesh(ghodrat);
         bargh.addGerayesh(mokhaberat);
 
+        Minor fizikMinor = new Minor(fizik, fizikMinorChart, 12);
+        fizik.addMinor(bargh, fizikMinor);
 
         this.addReshteh(bargh);
-
-
-        Reshteh naft = new Reshteh("naft");
-        this.addReshteh(naft);
-        Reshteh metal = new Reshteh("metal");
-        this.addReshteh(metal);
+        this.addReshteh(fizik);
     }
 
 
@@ -66,6 +102,24 @@ public class ReshtehRepository {
         for (Reshteh reshteh : reshtehHa){
             if (reshteh.hasGerayesh(gerayeshName)){
                 return reshteh.getGerayeshByName(gerayeshName);
+            }
+        }
+        return null;
+    }
+
+    public Reshteh getReshtehByName(String reshtehName){
+        for (Reshteh reshteh : reshtehHa){
+            if (reshteh.getName().equals(reshtehName)){
+                return reshteh;
+            }
+        }
+        return null;
+    }
+
+    public Minor getMinorByReshteh(Reshteh sourceReshteh, Reshteh destinationReshteh){
+        for (Reshteh reshteh : reshtehHa){
+            if (reshteh.equals(sourceReshteh)){
+                return reshteh.getMinorForReshteh(destinationReshteh);
             }
         }
         return null;

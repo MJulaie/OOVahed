@@ -42,6 +42,9 @@ public class Student extends Person {
         this.studentInfo = new StudentInfo(enteranceYear, gerayesh);
     }
 
+    public void setMinor(Minor minor){
+        studentInfo.setMinor(minor);
+    }
     public StudentState getStudentState() {
         return studentState;
     }

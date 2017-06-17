@@ -9,7 +9,7 @@ public class NormalChart  {
 
     private ArrayList<Course> courses = new ArrayList<Course>();
     private Map<Course, ArrayList<Course>> Prerequisites = new HashMap<Course, ArrayList<Course>>();
-    private ArrayList<Course> optionalCourses;
+    private ArrayList<Course> optionalCourses = new ArrayList<Course>();
     private Map<ArrayList<Course>,Integer> groupCourses;
     private Integer minimumOptionalCourse = 10;
 
@@ -32,8 +32,8 @@ public class NormalChart  {
     }
 
     private ArrayList<Course> deleteDuplicateFromFirst(ArrayList<Course> firstList, ArrayList<Course> secondList){
-        for (Course course : firstList){
-            if (secondList.contains(course))
+        for (Course course : secondList){
+            if (firstList.contains(course))
                 firstList.remove(course);
         }
 
@@ -51,7 +51,7 @@ public class NormalChart  {
     }
 
     public void addOptionalCourses(Course optionalCourse){
-        this.courses.add(optionalCourse);
+//        this.courses.add(optionalCourse);
         this.optionalCourses.add(optionalCourse);
     }
 
@@ -108,6 +108,13 @@ public class NormalChart  {
                 remainCourses.add(course);
             }
         }
+
+        for (Course course : optionalCourses){
+            if (!passedCourses.contains(course)){
+                remainCourses.add(course);
+            }
+        }
+
         return remainCourses;
     }
 

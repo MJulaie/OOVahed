@@ -39,7 +39,7 @@ public class StudentInfo {
 
         ArrayList<Course> remainCourses = this.getNormalChart().getRemainCourses(passedCourses);
 
-        if(minor != null) {
+        if (this.minor != null) {
             ArrayList<Course> minorRemainCourse = this.getMinorChart().getRemainCourses(passedCourses);
             remainCourses.removeAll(minorRemainCourse);
             remainCourses.addAll(minorRemainCourse);

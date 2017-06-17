@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class MinorChart {
 
     private class MinorBranch {
-        private ArrayList<Course> branchCourses;
+        private ArrayList<Course> branchCourses = new ArrayList<Course>();
         public MinorBranch(ArrayList<Course> branchCourses) {
             this.branchCourses = branchCourses;
         }
@@ -38,8 +38,8 @@ public class MinorChart {
         }
     }
 
-    private ArrayList<Course> mainCourses;
-    private ArrayList<MinorBranch> branches;
+    private ArrayList<Course> mainCourses = new ArrayList<Course>();
+    private ArrayList<MinorBranch> branches = new ArrayList<MinorBranch>();
 
     public void addNormalCourse(Course newCourse){
         mainCourses.add(newCourse);
@@ -90,7 +90,9 @@ public class MinorChart {
         }
 
         for (MinorBranch branch : branches){
-            remainCourses.addAll(branch.getRemainCourses(passedCourses));
+            ArrayList<Course> remainBranchCourses = branch.getRemainCourses(passedCourses);
+            remainCourses.addAll(remainBranchCourses);
+
         }
 
         return remainCourses;

@@ -10,7 +10,7 @@ public abstract class GraduationStrategy {
         ArrayList<Course> remainNormalCourses = normalChart.getRemainCourses(passedCourses);
         ArrayList<Course> remainOptionalCourses = normalChart.getRemainOptionalCourse(passedCourses);
         System.out.println("Your remain courses : ");
-        System.out.println("NORMAL COURSES : ");
+        System.out.println("All COURSES : ");
         for (Course course : remainNormalCourses){
             System.out.println(course);
         }
@@ -24,8 +24,8 @@ public abstract class GraduationStrategy {
         ArrayList<Course> remainNormalCourses = normalChart.getRemainCourses(passedCourses);
         ArrayList<Course> remainOptionalCourses = normalChart.getRemainOptionalCourse(passedCourses, minorGraduateCourses);
 
-        System.out.println("Your remain courses : ");
-        System.out.println("NORMAL COURSES : ");
+        System.out.println("Your Remain Courses : ");
+        System.out.println("All COURSES : ");
         for (Course course : remainNormalCourses){
             System.out.println(course);
         }
@@ -35,10 +35,12 @@ public abstract class GraduationStrategy {
             System.out.println(course);
         }
     }
+
     protected boolean isGraduateOnNormalChart(StudentInfo studentInfo, History studentHistory){
         NormalChart studentChart = studentInfo.getNormalChart();
         ArrayList<Course> passedCourses = studentHistory.getPassedCourses();
         if (studentChart.isGraduateNormal(passedCourses)){
+//            System.out.println("AADI :)");
             System.out.println("TABRIK , TO GRADUATE SHODI :)))) ");
             return true;
 
@@ -47,5 +49,15 @@ public abstract class GraduationStrategy {
             return false;
         }
 
+    }
+
+    protected void printMinorRemainCourses(MinorChart studentMinorChart, ArrayList<Course> passedCourses){
+        ArrayList<Course> allRemainCourses = studentMinorChart.getRemainCourses(passedCourses);
+        System.out.println("All minor Remain courses : ");
+        for (Course course : allRemainCourses){
+            System.out.println(course);
+        }
+
+        return;
     }
 }

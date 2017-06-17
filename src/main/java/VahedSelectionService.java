@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by mohammad on 5/17/17.
@@ -24,7 +26,14 @@ public class VahedSelectionService {
     public ArrayList<Option> getOptions(StudentInfo studentInfo, History history){
         ArrayList<Course> passedCourses = history.getPassedCourses();
         ArrayList<Course> remainCourses = studentInfo.getRemainCourse(passedCourses);
-        return OptionRepository.getInstance().getAvailableOptions(remainCourses);
+
+        ArrayList<Option> availableOptions = OptionRepository.getInstance().getAvailableOptions(remainCourses);
+        Set<Option> tempArray = new HashSet<Option>();
+        tempArray.addAll(availableOptions);
+        availableOptions.clear();
+        availableOptions.addAll(tempArray);
+
+        return availableOptions;
 
     }
 

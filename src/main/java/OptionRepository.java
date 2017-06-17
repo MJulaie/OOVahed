@@ -49,6 +49,8 @@ public class OptionRepository {
         Course course13 = courseRepository.getCourseByName("m");
         Course course14 = courseRepository.getCourseByName("n");
         Course course15 = courseRepository.getCourseByName("o");
+        Course course16 = courseRepository.getCourseByName("p");
+        Course course17 = courseRepository.getCourseByName("q");
 
 
 
@@ -78,7 +80,18 @@ public class OptionRepository {
         Option option6 = new Option(course5, teacher1, courseTime5, examDate5, 1, 13962, 6);
         Option option7 = new Option(course5, teacher1, courseTime3, examDate1, 25, 13962, 7);
         Option option8 = new Option(course6, teacher1, courseTime6, examDate6, 4, 13951, 8);
-        Option option9 = new Option(course7, teacher3, courseTime7, examDate7, 10, 13951, 9);
+        //
+        Option option9 = new Option(course7, teacher3, courseTime7, examDate7, 10, 13951, 17);
+        Option option10 = new Option(course8, teacher3, courseTime8, examDate7, 10, 13951, 9);
+        Option option11 = new Option(course9, teacher3, courseTime6, examDate7, 10, 13951, 10);
+        Option option12 = new Option(course10, teacher3, courseTime5, examDate7, 10, 13951, 11);
+        Option option13 = new Option(course11, teacher3, courseTime6, examDate7, 10, 13951, 12);
+        Option option14 = new Option(course12, teacher3, courseTime3, examDate8, 10, 13951, 13);
+        Option option15 = new Option(course13, teacher3, courseTime4, examDate7, 10, 13951, 14);
+        Option option16 = new Option(course14, teacher3, courseTime2, examDate8, 10, 13951, 15);
+        Option option17 = new Option(course15, teacher3, courseTime1, examDate7, 10, 13951, 16);
+        Option option18 = new Option(course16, teacher3, courseTime2, examDate8, 10, 13951, 17);
+        Option option19 = new Option(course17, teacher3, courseTime4, examDate8, 10, 13951, 18);
 
 
         options.add(option1);
@@ -90,6 +103,17 @@ public class OptionRepository {
         options.add(option7);
         options.add(option8);
         options.add(option9);
+        options.add(option10);
+        options.add(option11);
+        options.add(option12);
+        options.add(option13);
+        options.add(option14);
+        options.add(option15);
+        options.add(option16);
+        options.add(option17);
+        options.add(option18);
+        options.add(option19);
+
 
     }
 

@@ -16,6 +16,7 @@ public class WithMinorStrategy extends GraduationStrategy {
             ArrayList<Course> minorGraduateCourses = studentMinorChart.getGraduateCourses(passedCourses);
             if (studentNormalChart.isGraduateWithMinor(passedCourses, minorGraduateCourses)){
                 System.out.println("TABRIK , TO GRADUATE SHODI :)))) ");
+                System.out.println("TABRIK , TO MINOR GEREFTI :!!!");
                 return true;
             } else {
                 this.printRemainCourses(studentNormalChart, passedCourses, minorGraduateCourses);
@@ -23,6 +24,8 @@ public class WithMinorStrategy extends GraduationStrategy {
             }
 
         } else {
+
+            printMinorRemainCourses(studentMinorChart, passedCourses);
             return this.isGraduateOnNormalChart(studentInfo, studentHistory);
         }
 

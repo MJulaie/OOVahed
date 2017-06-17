@@ -55,16 +55,17 @@ public class VahedNumberChecker extends StudentPolicyChecker {
                 else {
                     if (vahedNumber >= MINIMUM_FOR_AADI && vahedNumber <= MAXIMUM_FOR_OTHER ){
                         return true;
-                    } else {
-                        System.out.println("|||");
-                        System.out.println("minimum or maximum vahed number not satisfied, try again :(");
-                        System.out.println("|||");
-
                     }
                 }
                 break;
 
         }
+
+        System.out.println("|||");
+        System.out.println("Your Chosen Vahed Number : " + vahedNumber);
+        System.out.println("minimum or maximum vahed number not satisfied, try again :(");
+        System.out.println("|||");
+
         return false;
     }
 }

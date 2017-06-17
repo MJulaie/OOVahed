@@ -6,10 +6,7 @@ import java.util.ArrayList;
 public class NormalStrategy extends GraduationStrategy {
     @Override
     public boolean satisfy(StudentInfo studentInfo, History studentHistory) {
-        if (this.isGraduateOnNormalChart(studentInfo, studentHistory)){
-            System.out.println("TABRIK , TO GRADUATE SHODI :)))) ");
-            return true;
-        } else
         return this.isGraduateOnNormalChart(studentInfo, studentHistory);
+
     }
 }

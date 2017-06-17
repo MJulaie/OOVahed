@@ -13,6 +13,7 @@ public class Reshteh {
     public Reshteh(String name) {
         Gerayesh defaultGerayesh = new Gerayesh("default");
         defaultGerayesh.setReshtehName(name);
+        this.name = name;
         this.gerayeshHa.add(defaultGerayesh);
     }
 
